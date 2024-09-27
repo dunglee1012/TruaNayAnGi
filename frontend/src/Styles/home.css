@@ -1,0 +1,101 @@
+/* Home.css */
+.home-container {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-image: url('../Resource/home_background.jpg');
+    animation: ani 50s linear infinite;
+    background-size: contain;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-top: 5rem;
+    background-position: center 10px;
+}
+
+@keyframes ani{
+	0%{background-position: 0 0;}
+	100%{background-position: 100vw 0;}
+}
+
+.home-container h1,
+.home-container p {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F9CB53;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.content {
+    padding: 20px;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.big-box {
+    border: 2px solid #007bff; 
+    border-radius: 10px; 
+    padding: 20px; 
+    margin: 20px 10px 10px 10px; 
+    background-color: #f8f9fa; 
+    transition: transform 0.2s; 
+}
+
+.big-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.big-box h2 {
+    color: #007bff;
+    font-size: 24px;
+    margin: 0;
+}
+
+.col-md-5.expanded {
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.col-md-5.minimized {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
