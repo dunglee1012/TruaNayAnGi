@@ -7,8 +7,8 @@ const FoodList = () => {
     useEffect(() => {
         const fetchFoods = async () => {
             try {
-                const response = await axios.get('/api/foods');
-                console.log('Foods:', response.data);
+                const response = await axios.get('http://localhost:5000/api/foods'); // Use full URL
+                console.log('Response from /api/foods:', response);
                 setFoods(response.data);
             } catch (error) {
                 console.error('Error fetching food list:', error);

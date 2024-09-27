@@ -1,10 +1,13 @@
 const express = require('express');
-// const { MongoClient } = require('mongodb');
 const mongoose = require('mongoose');
+const cors = require('cors'); // Import the cors package
+
 const foodRoutes = require('./routes/foodRoutes');
+
 const app = express();
 const port = 5000; 
 app.use(express.json());
+app.use(cors()); // Enable CORS for all routes
 
 const username = 'dung';
 const password = '12345';
