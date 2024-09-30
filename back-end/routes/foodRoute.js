@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const FoodCategory = require('../models/foodCategory');
+const Food = require('../models/Food');
 
-// Get all food categories
+// Get all foods
 router.get('/', async (req, res) => {
     try {
-        const foodCategories = await FoodCategory.find().populate('category').populate('food');
-        res.json(foodCategories);
+        const foods = await Food.find();
+        res.status(200).json(foods);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

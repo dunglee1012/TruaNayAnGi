@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/home.css';
+import CategoryListDisplay from './CategoryListDisplay';
+import FoodListDisplay from './FoodListDisplay';
 
 const Home = () => {
     const [expandedBox, setExpandedBox] = useState(null);
@@ -10,16 +12,16 @@ const Home = () => {
         setMinimizingBox('find');
         setTimeout(() => {
             setExpandedBox('vote');
-        }, 500); // Wait for the minimize animation to complete
+        }, 500);
     };
 
     const handleFindClick = () => {
         setMinimizingBox('vote');
         setTimeout(() => {
             setExpandedBox('find');
-        }, 500); // Wait for the minimize animation to complete
+        }, 500);
     };
-    
+
     const handleClickOutside = (event) => {
         if (!event.target.closest('.big-box')) {
             setExpandedBox(null);
@@ -56,16 +58,26 @@ const Home = () => {
 
             <div className="container mt-5">
                 <div className="row justify-content-center">
+
                     <div className={`col-md-5 ${expandedBox === 'vote' ? 'expanded' : expandedBox ? 'minimized' : ''}`}>
                         <div className="big-box text-center" onClick={handleVoteClick}>
                             <h2>Vote</h2>
+                            {expandedBox === 'vote' && (
+                                <div className="category-content">
+                                    <h3>Categories</h3>
+                                    <CategoryListDisplay></CategoryListDisplay>
+                                    <FoodListDisplay></FoodListDisplay>
+                                </div>
+                            )}
                         </div>
                     </div>
+
                     <div className={`col-md-5 ${expandedBox === 'find' ? 'expanded' : expandedBox ? 'minimized' : ''}`}>
                         <div className="big-box text-center" onClick={handleFindClick}>
                             <h2>Find</h2>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
